@@ -1,6 +1,11 @@
+import { sha256 } from "./crypto.mjs";
 import { getJsonPaths } from "./jsonPaths.mjs";
 
-export function hashJson(object) {
+export function hashJson(object, hashFn = sha256) {
   const jsonPaths = getJsonPaths(object);
-  console.log(jsonPaths);
+  const jsonString = JSON.stringify(jsonPaths);
+  const hash = hashFn(jsonString);
+
+  return hash;
 }
+
