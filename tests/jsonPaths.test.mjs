@@ -47,3 +47,16 @@ it("should handle complex object with different data types", () => {
   ];
   assert.deepEqual(hash, expected);
 });
+
+it('should throw when unsupported JSON value "undefined" is provided', () => {
+  const fn = () => {
+    const input = undefined;
+    getJsonPaths(input);
+  }
+
+  const expectedError = {
+    message: 'Unsupported JSON value: undefined'
+  }
+
+  assert.throws(fn, expectedError)
+});
