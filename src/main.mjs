@@ -1,6 +1,6 @@
-import { getJsonPaths } from "./getJsonPaths.mjs";
+import { getJsonPaths } from "./jsonPaths.mjs";
 
-export function getJsonMetaHash(object) {
+export function hashJson(object) {
   const jsonPaths = getJsonPaths(object);
-  console.log(jsonPaths.sort());
+  console.log(jsonPaths);
 }

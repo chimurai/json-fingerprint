@@ -1,5 +1,10 @@
-import { getType } from "./getType.mjs";
+import { getType } from "./jsonTypes.mjs";
 
+/**
+ * @param {object} obj
+ * @param {object} currentPath
+ * @returns
+ */
 export function getJsonPaths(obj, currentPath = "$") {
   let paths = [];
 
