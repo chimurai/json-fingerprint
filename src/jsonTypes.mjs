@@ -18,7 +18,20 @@ export function getType(obj) {
     return typeof obj;
   } else if (Array.isArray(obj)) {
     return "array";
+  } else if (isPlainObject(obj)) {
+    return "object";
   } else {
-    return "object"; // TODO: determine POJO
+    throw new Error(`Unsupported JSON value: ${obj}`)
   }
+}
+
+
+function isPlainObject(value) {
+  // Check for truthy value and object type
+  if (typeof value !== 'object' || value === null) {
+    return false;
+  }
+
+  // Check if constructor is Object
+  return Object.prototype.constructor === value.constructor;
 }
