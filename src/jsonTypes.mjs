@@ -21,7 +21,7 @@ export function getType(obj) {
   } else if (isPlainObject(obj)) {
     return "object";
   } else {
-    throw new Error(`Unsupported JSON value: ${obj}`)
+    throw new Error(`Unsupported JSON value: ${typeof obj}`)
   }
 }
 

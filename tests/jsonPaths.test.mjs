@@ -60,4 +60,17 @@ describe('JSON paths', () => {
 
     assert.throws(fn, expectedError)
   });
+
+  it('should throw when unsupported JSON value "function" is provided', () => {
+    const fn = () => {
+      const input = () => {};
+      getJsonPaths(input);
+    }
+
+    const expectedError = {
+      message: 'Unsupported JSON value: function'
+    }
+
+    assert.throws(fn, expectedError)
+  });
 });
