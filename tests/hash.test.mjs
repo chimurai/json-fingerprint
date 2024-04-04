@@ -44,4 +44,11 @@ describe('hash sha256', () => {
     const expected = '6122bc4f3f0752848330718670eda35c4bce5e17a71bbb046579b4762bc6af26';
     assert.strictEqual(hash, expected);
   });
+
+  it("should calculate sha256 for parsed JSON", () => {
+    const input = JSON.parse(`{"foo":"bar"}`);
+    const hash = hashJson(input);
+    const expected = '3e61d854042bcd6273a8e18589eb53a37e4cdc111bd2dc717413951637c11e2d';
+    assert.strictEqual(hash, expected);
+  });
 })
