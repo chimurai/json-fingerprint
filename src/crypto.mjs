@@ -1,7 +1,5 @@
-import * as crypto from 'node:crypto';
+import { createHash } from 'node:crypto';
 
 export function sha256(data) {
-  const hash = crypto.createHash('sha256');
-  hash.update(data);
-  return hash.digest('hex');
+  return createHash('sha256').update(data).digest('hex');
 }
