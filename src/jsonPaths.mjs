@@ -6,7 +6,7 @@ import { getType } from "./jsonTypes.mjs";
  * @returns
  */
 export function getJsonPaths(obj, currentPath = "$") {
-  let paths = [];
+  const paths = [];
 
   // jsonPath with js type: <jsonPath>:<type>
   const jsonPathMeta = `${currentPath}:${getType(obj)}`;
@@ -16,13 +16,13 @@ export function getJsonPaths(obj, currentPath = "$") {
 
     if (Array.isArray(obj)) {
       obj.forEach((item, index) => {
-        let newPath = `${currentPath}[${index}]`; // bracket notation for Arrays in jsonPath
-        paths = [...paths, ...getJsonPaths(item, newPath)];
+        const newPath = `${currentPath}[${index}]`; // bracket notation for Arrays in jsonPath
+        getJsonPaths(item, newPath).forEach(path => paths.push(path));
       });
     } else {
-      for (let key in obj) {
-        let newPath = `${currentPath}.${key}`; // dot notion in jsonPath
-        paths = [...paths, ...getJsonPaths(obj[key], newPath)];
+      for (const key in obj) {
+        const newPath = `${currentPath}.${key}`; // dot notion in jsonPath
+        getJsonPaths(obj[key], newPath).forEach(path => paths.push(path));
       }
     }
   } else {
