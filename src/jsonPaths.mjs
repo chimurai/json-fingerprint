@@ -2,7 +2,7 @@ import { getType } from "./jsonTypes.mjs";
 
 /**
  * @param {object} obj
- * @param {object} currentPath
+ * @param {string} currentPath
  * @returns
  */
 export function getJsonPaths(obj, currentPath = "$") {

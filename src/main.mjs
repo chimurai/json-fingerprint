@@ -6,6 +6,11 @@ export function hashJson(object, hashFn = sha256) {
   const jsonString = JSON.stringify(jsonPaths);
   const hash = hashFn(jsonString);
 
-  return hash;
+  const result = {
+    hash,
+    jsonPaths,
+    source: object,
+  }
+  return result;
 }
 
