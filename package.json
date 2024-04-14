@@ -1,13 +1,17 @@
 {
-  "name": "json-meta",
+  "name": "json-fingerprint",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "JSON fingerprint",
+  "author": "chimurai",
+  "license": "MIT",
+  "keywords": [
+    "JSON",
+    "fingerprint",
+    "hash"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "node --test"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  }
 }

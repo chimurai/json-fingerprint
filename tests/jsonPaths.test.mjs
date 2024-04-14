@@ -2,7 +2,7 @@ import { describe, it } from "node:test";
 import * as assert from "node:assert";
 import { getJsonPaths } from "../src/jsonPaths.mjs";
 
-describe('JSON paths', () => {
+describe('getJsonPaths()', () => {
   it("should handle empty object", () => {
     const input = {};
     const hash = getJsonPaths(input);
