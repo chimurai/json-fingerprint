@@ -107,7 +107,7 @@ describe('hash sha256', () => {
     assert.deepEqual(result, expected);
   });
 
-  it("should calculate sha256 for parsed JSON", () => {
+  it("should calculate sha256 for manually parsed JSON", () => {
     const input = JSON.parse(`{"foo":"bar"}`);
     const result = hashJson(input);
     const expected = {
@@ -121,5 +121,25 @@ describe('hash sha256', () => {
       }
     };
     assert.deepEqual(result, expected);
+  });
+
+  it("should calculate sha256 for automatic parsed JSON", () => {
+    const input = `{"foo":"bar"}`;
+    const result = hashJson(input);
+    const expected = {
+      hash: '3e61d854042bcd6273a8e18589eb53a37e4cdc111bd2dc717413951637c11e2d',
+      jsonPaths: [
+        '$:object',
+        '$.foo:string'
+      ],
+      source: `{"foo":"bar"}`
+    };
+    assert.deepEqual(result, expected);
+  });
+
+  it("should throw error when invalid JSON string is provided as input", () => {
+    const input = `invalid JSON string`;
+
+    assert.throws(() => hashJson(input), 'SyntaxError: Unexpected end of JSON input')
   });
 })
