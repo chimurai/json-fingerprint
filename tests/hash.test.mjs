@@ -19,50 +19,107 @@ describe('hash sha256', () => {
 
   it("should calculate sha256 form empty object {}", () => {
     const input = {};
-    const {hash} = hashJson(input);
-    const expected = '7b91a4b0e91c6ca5514fd6a93ca1a16e985475f0d93b5104f1f9bab111c30b43';
-    assert.strictEqual(hash, expected);
+    const result = hashJson(input);
+    const expected = {
+      hash: '7b91a4b0e91c6ca5514fd6a93ca1a16e985475f0d93b5104f1f9bab111c30b43',
+      jsonPaths: [
+        '$:object'
+      ],
+      source: {}
+    }
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 form empty array []", () => {
     const input = [];
-    const {hash} = hashJson(input);
-    const expected = 'bc6443f2e3bdc0ad6b5a09effe036b605295456a5c89133a7239c5c61684ab15';
-    assert.strictEqual(hash, expected);
+    const result = hashJson(input);
+    const expected = {
+      hash: 'bc6443f2e3bdc0ad6b5a09effe036b605295456a5c89133a7239c5c61684ab15',
+      jsonPaths: [
+        '$:array'
+      ],
+      source: []
+    };
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 for number type", () => {
-    const input = 1;
-    const {hash} = hashJson(input);
-    const expected = 'a9d3a07da17475f97bccd0f2d751b48ba3f02f6f80784886185bbc95e920e35b';
-    assert.strictEqual(hash, expected);
+    const input = [1];
+    const result = hashJson(input);
+    const expected = {
+      hash: '79a0177459f1b8a48eb2b8989d0cb5d552c83ffc507361a15195b61e855c9058',
+      jsonPaths: [
+        '$:array',
+        '$[0]:number'
+      ],
+      source: [
+        1
+      ]
+    };
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 for string type", () => {
-    const input = "1";
-    const {hash} = hashJson(input);
-    const expected = 'e82fe1e004fd9f16a2a9c6baeb3a70a16c1909a026be42db309013d1d15c0fca';
-    assert.strictEqual(hash, expected);
+    const input = ["1"];
+    const result = hashJson(input);
+    const expected = {
+      hash: 'e678ec848568753d3aa6e39641e55bf525431f20fcc24c7bd6ab3cf6ffd3a378',
+      jsonPaths: [
+        '$:array',
+        '$[0]:string'
+      ],
+      source: [
+        '1'
+      ]
+    };
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 for boolean type", () => {
-    const input = true;
-    const {hash} = hashJson(input);
-    const expected = '4f1d702b16c654b2ac41bdcc7ab607f69717dbf9853e0b710a0993515b7cba99';
-    assert.strictEqual(hash, expected);
+    const input = [true];
+    const result = hashJson(input);
+    const expected = {
+      hash: '1812b2a5f26bbf3e65a80ad730e8aaddfe697c97d36c245db684e37b480cabec',
+      jsonPaths: [
+        '$:array',
+        '$[0]:boolean'
+      ],
+      source: [
+        true
+      ]
+    };
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 for null type", () => {
-    const input = null;
-    const {hash} = hashJson(input);
-    const expected = '6122bc4f3f0752848330718670eda35c4bce5e17a71bbb046579b4762bc6af26';
-    assert.strictEqual(hash, expected);
+    const input = [null];
+    const result = hashJson(input);
+    const expected = {
+      hash: '6186699f2e4d35cebc36e0588b821fbbb97f9b6ac2ad66586f893d3d64876c02',
+      jsonPaths: [
+        '$:array',
+        '$[0]:null'
+      ],
+      source: [
+        null
+      ]
+    };
+    assert.deepEqual(result, expected);
   });
 
   it("should calculate sha256 for parsed JSON", () => {
     const input = JSON.parse(`{"foo":"bar"}`);
-    const {hash} = hashJson(input);
-    const expected = '3e61d854042bcd6273a8e18589eb53a37e4cdc111bd2dc717413951637c11e2d';
-    assert.strictEqual(hash, expected);
+    const result = hashJson(input);
+    const expected = {
+      hash: '3e61d854042bcd6273a8e18589eb53a37e4cdc111bd2dc717413951637c11e2d',
+      jsonPaths: [
+        '$:object',
+        '$.foo:string'
+      ],
+      source: {
+        foo: 'bar'
+      }
+    };
+    assert.deepEqual(result, expected);
   });
 })
