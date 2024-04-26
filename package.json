@@ -11,6 +11,7 @@
     "hash"
   ],
   "main": "src/main.mjs",
+  "files": ["src"],
   "scripts": {
     "clean": "rm -rf coverage",
     "test": "node --test",
