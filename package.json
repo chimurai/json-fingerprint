@@ -10,7 +10,7 @@
     "fingerprint",
     "hash"
   ],
-  "main": "index.js",
+  "main": "src/main.mjs",
   "scripts": {
     "clean": "rm -rf coverage",
     "test": "node --test",
