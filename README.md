@@ -2,6 +2,18 @@
 
 Fingerprint a JSON by calculating the **hash** (default: sha256) based on the **shape** of the JSON and its **value types**.
 
+## Install
+
+```shell
+npm install json-fingerprint
+```
+
+## Usage
+
+```mjs
+import {fingerprintJSON} from 'json-fingerprint';
+```
+
 ```mjs
 const {hash, jsonPaths} = fingerprintJSON(`{"foo":"bar"}`)
 // hash = 3e61d854042bcd6273a8e18589eb53a37e4cdc111bd2dc717413951637c11e2d
@@ -12,7 +24,7 @@ const {hash, jsonPaths} = fingerprintJSON(`{"foo":"some string"}`)
 // jsonPaths = ['$:object', '$.foo:string']
 ```
 
-## options
+## Options
 
 ```mjs
 // JSON input
@@ -25,7 +37,23 @@ fingerprintJSON({"foo":"bar"})
 fingerprintJSON(`{"foo":"bar"}`, myCustomHashFn)
 ```
 
-## result
+## Custom hash function
+
+```mjs
+import { createHash } from 'node:crypto';
+
+function sha512(data) {
+  /**
+   * https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options
+   * `openssl list -digest-algorithms` to display the available digest algorithms
+   */
+  return createHash('sha512').update(data).digest('hex');
+}
+
+fingerprintJSON(`{"foo":"bar"}`, sha512);
+```
+
+## Result
 
 ```mjs
 const {hash, jsonPaths, source} = fingerprintJSON(`{"foo":"bar"}`)
