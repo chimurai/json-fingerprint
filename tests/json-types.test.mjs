@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import * as assert from "node:assert";
-import { getType } from "../src/jsonTypes.mjs";
+import { getType } from "../src/json-types.mjs";
 
 describe('getType()', () => {
   it("should return valid JSON value types", () => {

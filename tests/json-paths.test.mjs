@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import * as assert from "node:assert";
-import { getJsonPaths } from "../src/jsonPaths.mjs";
+import { getJsonPaths } from "../src/json-paths.mjs";
 
 describe('getJsonPaths()', () => {
   it("should handle empty object", () => {

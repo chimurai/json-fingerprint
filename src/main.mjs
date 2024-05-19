@@ -1,5 +1,5 @@
 import { sha256 } from "./crypto.mjs";
-import { getJsonPaths } from "./jsonPaths.mjs";
+import { getJsonPaths } from "./json-paths.mjs";
 
 export function fingerprintJSON(input, hashFn = sha256) {
   let object = input;

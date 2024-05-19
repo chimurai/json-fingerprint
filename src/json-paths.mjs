@@ -1,4 +1,4 @@
-import { getType } from "./jsonTypes.mjs";
+import { getType } from "./json-types.mjs";
 
 /**
  * @param {object} obj
