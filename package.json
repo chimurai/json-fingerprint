@@ -1,7 +1,7 @@
 {
   "name": "json-fingerprint",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.0",
   "description": "JSON fingerprint",
   "author": "chimurai",
   "license": "MIT",
@@ -16,5 +16,8 @@
     "clean": "rm -rf coverage",
     "test": "node --test",
     "coverage": "mkdir -p coverage && node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=coverage/lcov.info"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
   }
 }
