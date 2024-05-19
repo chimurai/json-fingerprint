@@ -68,9 +68,10 @@ describe('getJsonPaths()', () => {
     }
 
     const expectedError = {
-      message: 'Unsupported JSON value: function'
+      message: 'Unsupported JSON value: Function'
     }
 
+    assert.throws(fn, TypeError)
     assert.throws(fn, expectedError)
   });
 });
