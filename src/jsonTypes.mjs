@@ -17,7 +17,7 @@ export function getType(obj) {
   } else if (isPlainObject(obj)) {
     return "object";
   } else {
-    throw new TypeError(`Unsupported JSON value: ${obj?.constructor?.name ?? typeof obj}`)
+    throw new TypeError(`Invalid JSON value: ${obj?.constructor?.name ?? typeof obj}`)
   }
 }
 

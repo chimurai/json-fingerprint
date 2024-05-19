@@ -48,27 +48,27 @@ describe('getJsonPaths()', () => {
     assert.deepEqual(hash, expected);
   });
 
-  it('should throw when unsupported JSON value "undefined" is provided', () => {
+  it('should throw when invalid JSON value "undefined" is provided', () => {
     const fn = () => {
       const input = undefined;
       getJsonPaths(input);
     }
 
     const expectedError = {
-      message: 'Unsupported JSON value: undefined'
+      message: 'Invalid JSON value: undefined'
     }
 
     assert.throws(fn, expectedError)
   });
 
-  it('should throw when unsupported JSON value "function" is provided', () => {
+  it('should throw when invalid JSON value "function" is provided', () => {
     const fn = () => {
       const input = () => {};
       getJsonPaths(input);
     }
 
     const expectedError = {
-      message: 'Unsupported JSON value: Function'
+      message: 'Invalid JSON value: Function'
     }
 
     assert.throws(fn, TypeError)
