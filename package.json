@@ -10,12 +10,16 @@
     "fingerprint",
     "hash"
   ],
+  "publishConfig": {
+    "provenance": true
+  },
   "main": "src/main.mjs",
   "files": ["src"],
   "scripts": {
     "clean": "rm -rf coverage",
     "test": "node --test",
-    "coverage": "mkdir -p coverage && node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=coverage/lcov.info"
+    "coverage": "mkdir -p coverage && node --test --experimental-test-coverage --test-reporter=lcov --test-reporter-destination=coverage/lcov.info",
+    "prepack": "npm run clean"
   },
   "engines": {
     "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
