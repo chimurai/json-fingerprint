@@ -6,10 +6,6 @@ export function getType(obj) {
     "string",
     "number",
     "boolean",
-    // // https://developer.mozilla.org/en-US/docs/Glossary/Primitive
-    // "undefined",
-    // "bigint",
-    // "symbol",
   ];
 
   if (obj === null) {
@@ -21,7 +17,7 @@ export function getType(obj) {
   } else if (isPlainObject(obj)) {
     return "object";
   } else {
-    throw new Error(`Unsupported JSON value: ${typeof obj}`)
+    throw new TypeError(`Invalid JSON value: ${obj?.constructor?.name ?? typeof obj}`)
   }
 }
 
