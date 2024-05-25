@@ -9,8 +9,7 @@ export function fingerprintJSON(input, hashFn = sha256) {
   }
 
   const jsonPaths = getJsonPaths(object);
-  const jsonString = JSON.stringify(jsonPaths);
-  const hash = hashFn(jsonString);
+  const hash = hashFn(JSON.stringify(jsonPaths));
 
   const result = {
     hash,

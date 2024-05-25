@@ -37,6 +37,16 @@ fingerprintJSON({"foo":"bar"})
 fingerprintJSON(`{"foo":"bar"}`, myCustomHashFn)
 ```
 
+## Result
+
+```mjs
+const {hash, jsonPaths, source} = fingerprintJSON(`{"foo":"bar"}`)
+```
+
+- `hash`: fingerprint hash of the JSON
+- `jsonPaths`: internal JSON meta data (hash is calculated based on stringified jsonPaths)
+- `source`: original JSON provided as input
+
 ## Custom hash function
 
 ```mjs
@@ -52,13 +62,3 @@ function sha512(data) {
 
 fingerprintJSON(`{"foo":"bar"}`, sha512);
 ```
-
-## Result
-
-```mjs
-const {hash, jsonPaths, source} = fingerprintJSON(`{"foo":"bar"}`)
-```
-
-- `hash`: fingerprint hash of the JSON
-- `jsonPaths`: internal JSON meta data (hash is calculated based on stringified jsonPaths)
-- `source`: original JSON provided as input
