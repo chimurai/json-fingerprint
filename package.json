@@ -3,6 +3,10 @@
   "type": "module",
   "version": "1.0.0-rc.1",
   "description": "JSON fingerprint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chimurai/json-fingerprint.git"
+  },
   "author": "chimurai",
   "license": "MIT",
   "keywords": [
