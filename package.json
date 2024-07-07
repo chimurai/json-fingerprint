@@ -2,10 +2,10 @@
   "name": "json-fingerprint",
   "type": "module",
   "version": "1.0.0-rc.1",
-  "description": "JSON fingerprint",
+  "description": "JSON fingerprint - create an unique hash for JSON data based on structure and value types",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chimurai/json-fingerprint.git"
+    "url": "git+https://github.com/chimurai/json-fingerprint.git"
   },
   "author": "chimurai",
   "license": "MIT",
@@ -18,7 +18,9 @@
     "provenance": true
   },
   "main": "src/main.mjs",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "clean": "rm -rf coverage",
     "test": "node --test",
