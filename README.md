@@ -62,3 +62,19 @@ function sha512(data) {
 
 fingerprintJSON(`{"foo":"bar"}`, sha512);
 ```
+
+## CLI
+
+### hash a file
+
+```shell
+npx json-fingerprint --file=package.json
+$ c0f87b9c30f33f44e9723c192d1797c161fb53e22ce06615cb6738d2bfb7b25d
+```
+
+### pipe to json-fingerprint
+
+```shell
+wget -qO - https://github.com/chimurai/json-fingerprint/raw/main/package.json | npx json-fingerprint
+$ c0f87b9c30f33f44e9723c192d1797c161fb53e22ce06615cb6738d2bfb7b25d
+```
