@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 import { fingerprintJSON } from '../src/main.mjs';
+import { cryptoHash } from '../src/crypto.mjs'
 
 const [,, ...args] = process.argv
 
@@ -15,6 +16,10 @@ const [,, ...args] = process.argv
  */
 const config = Object.fromEntries(args.map(item => item.replace(/^-+/g, '').split('=')));
 
+/**
+ * Create hash function with configured hash algorithm
+ */
+const hashFn = (config.hash) ? (data) => cryptoHash(data, config.hash) : undefined;
 
 if (!process.stdin.isTTY) {
   // handle piped data
@@ -25,7 +30,7 @@ if (!process.stdin.isTTY) {
     process.stdin.on('error', reject);
   });
 
-  console.log(fingerprintJSON(content).hash)
+  console.log(fingerprintJSON(content, hashFn).hash)
 } else {
   // handle --file configuration
   const { file } = config;
@@ -35,7 +40,7 @@ if (!process.stdin.isTTY) {
   const filePath = (file.startsWith('/')) ? file : path.join(process.cwd(), file);
 
   const content = await readFile(filePath, {encoding: 'utf-8'});
-  console.log(fingerprintJSON(content).hash);
+  console.log(fingerprintJSON(content, hashFn).hash);
 }
 
 
