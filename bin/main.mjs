@@ -32,6 +32,23 @@ if ('version' in config) {
   process.exit(EXITCODE.SUCCESS);
 }
 
+if ('help' in config) {
+  const helpText = `
+  --file        JSON file to fingerprint. Example: --file=package.json
+
+  --hash        hash algorithm to use for fingerprint. (default: --hash=sha256)
+                list supported algorithms: 'openssl list -digest-algorithms'
+
+  --version     print version
+  --help        print help
+
+  (for more information: https://github.com/chimurai/json-fingerprint#cli)
+  `;
+  console.log(helpText);
+
+  process.exit(EXITCODE.SUCCESS);
+}
+
 if (!process.stdin.isTTY) {
   // get data from process.stdin
   const content = await getStreamContent(process.stdin);
