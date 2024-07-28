@@ -5,6 +5,8 @@ export function sha256(data) {
 }
 
 /**
+ * @param {string} data
+ * @param {string} algorithm
  * https://nodejs.org/api/crypto.html#cryptocreatehashalgorithm-options
  * `openssl list -digest-algorithms` to display the available digest algorithms
  */
