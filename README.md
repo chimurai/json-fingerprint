@@ -1,6 +1,6 @@
 # json-fingerprint
 
-Fingerprint a JSON by calculating the **hash** (default: sha256) based on the **shape** of the JSON and its **value types**.
+Fingerprint JSON by calculating the **hash** (default: sha256) based on the **shape** of the JSON and its **value types**.
 
 ## Install
 
@@ -65,7 +65,7 @@ fingerprintJSON(`{"foo":"bar"}`, sha512);
 
 ## CLI
 
-### hash a file
+### hash a JSON file
 
 ```shell
 npx json-fingerprint --file=package.json
