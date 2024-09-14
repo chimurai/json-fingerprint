@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import assert from 'node:assert';
 
 import { cryptoHash } from '../src/crypto.mjs'
