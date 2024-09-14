@@ -2,7 +2,7 @@ import * as assert from "node:assert";
 import path from 'node:path';
 import { describe, it } from "node:test";
 
-import { getFileContent } from "../../bin/utils/file.mjs";
+import { getFileContent } from "../../src/bin/utils/file.mjs";
 
 describe('bin/utils getFileContent()', () => {
   it("should return content from relative file path", async () => {

@@ -3,7 +3,7 @@ import { createReadStream } from 'node:fs';
 import { Readable } from 'node:stream';
 import { describe, it } from "node:test";
 
-import { getStreamContent } from '../../bin/utils/stream.mjs';
+import { getStreamContent } from '../../src/bin/utils/stream.mjs';
 
 describe('bin/utils getStreamContent()', () => {
   it("should return content from process.stdin", async () => {
