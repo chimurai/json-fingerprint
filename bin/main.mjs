@@ -2,11 +2,11 @@
 
 import assert from 'node:assert';
 
+import { getFileContent } from '../src/bin/utils/file.mjs'
+import { getStreamContent } from '../src/bin/utils/stream.mjs';
+import { parseConfig } from '../src/bin/utils/config.mjs';
 import { cryptoHash } from '../src/crypto.mjs'
 import { fingerprintJSON } from '../src/main.mjs';
-import { getFileContent } from './utils/file.mjs'
-import { getStreamContent } from './utils/stream.mjs';
-import { parseConfig } from './utils/config.mjs';
 
 const [,, ...args] = process.argv
 

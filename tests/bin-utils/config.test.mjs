@@ -1,7 +1,7 @@
 import * as assert from "node:assert";
 import { describe, it } from "node:test";
 
-import { parseConfig } from '../../bin/utils/config.mjs';
+import { parseConfig } from '../../src/bin/utils/config.mjs';
 
 describe('bin/utils parseConfig()', () => {
   it('should parse CLI options to a POJO', () => {
