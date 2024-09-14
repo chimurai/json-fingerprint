@@ -18,6 +18,9 @@
     "provenance": true
   },
   "main": "src/main.mjs",
+  "bin": {
+    "json-fingerprint": "bin/main.mjs"
+  },
   "files": [
     "src"
   ],
