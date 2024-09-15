@@ -2,6 +2,20 @@
 
 Fingerprint JSON by calculating the **hash** (default: sha256) based on the **shape** of the JSON and its **value types**.
 
+- [Install](#install)
+- [Usage](#usage)
+- [Options](#options)
+- [Result](#result)
+- [Custom hash function](#custom-hash-function)
+- [CLI](#cli)
+  - [hash a JSON file](#hash-a-json-file)
+  - [pipe to json-fingerprint](#pipe-to-json-fingerprint)
+- [CLI options](#cli-options)
+  - [`--file`](#--file)
+  - [`--hash` (default: `sha256`)](#--hash-default-sha256)
+  - [`--help`](#--help)
+  - [`--version`](#--version)
+
 ## Install
 
 ```shell
@@ -69,17 +83,42 @@ fingerprintJSON(`{"foo":"bar"}`, sha512);
 
 ```shell
 npx json-fingerprint --file=package.json
-$ c0f87b9c30f33f44e9723c192d1797c161fb53e22ce06615cb6738d2bfb7b25d
+$ 8d04433255d9cd89eb54dcb09b43d0be92ca5b5f5ba9dffee274869f6b9a9158
 ```
 
 ### pipe to json-fingerprint
 
 ```shell
 cat package.json | npx json-fingerprint
-$ c0f87b9c30f33f44e9723c192d1797c161fb53e22ce06615cb6738d2bfb7b25d
+$ 8d04433255d9cd89eb54dcb09b43d0be92ca5b5f5ba9dffee274869f6b9a9158
+```
+
+```shell
+curl -sL https://github.com/chimurai/json-fingerprint/raw/main/package.json | npx json-fingerprint
+$ 8d04433255d9cd89eb54dcb09b43d0be92ca5b5f5ba9dffee274869f6b9a9158
 ```
 
 ```shell
 wget -qO - https://github.com/chimurai/json-fingerprint/raw/main/package.json | npx json-fingerprint
-$ c0f87b9c30f33f44e9723c192d1797c161fb53e22ce06615cb6738d2bfb7b25d
+$ 8d04433255d9cd89eb54dcb09b43d0be92ca5b5f5ba9dffee274869f6b9a9158
 ```
+
+## CLI options
+
+### `--file`
+
+### `--hash` (default: `sha256`)
+
+```shell
+cat package.json | npx json-fingerprint --hash=md5
+$ 4c86eaaa836218a1d5e6673e7f89303e
+```
+
+```shell
+curl -sL https://github.com/chimurai/json-fingerprint/raw/main/package.json | npx json-fingerprint --hash=md5
+$ 4c86eaaa836218a1d5e6673e7f89303e
+```
+
+### `--help`
+
+### `--version`
